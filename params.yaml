@@ -1,1 +1,7 @@
-key: val
+AUGMENTATION: True
+IMAGE_SIZE: [100, 120, 1] 
+BATCH_SIZE: 128
+EPOCHS: 8
+CLASSES: 6
+LOSS: categorical_crossentropy
+METRICS: [categorical_accuracy]
