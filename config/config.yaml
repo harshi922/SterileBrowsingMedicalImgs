@@ -1,0 +1,7 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://github.com/harshi922/Datasets/raw/refs/heads/master/Dataset-20241028T135827Z-001.zip
+  local_data_file: artifacts/data_ingestion/Dataset.zip
+  unzip_dir: artifacts/data_ingestion

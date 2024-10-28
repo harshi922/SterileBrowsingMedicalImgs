@@ -19,14 +19,14 @@ list_of_files = [
     f"src/{project_name}/config/configuration.py",
     f"src/{project_name}/pipeline/__init__.py",
     f"src/{project_name}/entity/__init__.py",
-    f"src/{project_name}/constants/__init__.py"
-    "config/config.yaml",
+    f"src/{project_name}/constants/__init__.py",
     "dvc.yaml",
     "params.yaml",
     "requirements.txt",
     "setup.py",
     "research/trials.ipynb", 
     "templates/index.html",
+    "config/config.yaml",
 ]
 
 for file in list_of_files:
@@ -39,7 +39,7 @@ for file in list_of_files:
         os.makedirs(file_dir, exist_ok=True)
         logging.info(f"Directory creating: {file_dir} for file: {file_name}")
     # create a file if it does not exist 
-    if (not os.path.exists(path) or os.path.getsize(path) != 0):
+    if (not os.path.exists(path) or os.path.getsize(path) == 0):
         with open(path, "w") as f:
             pass
             logging.info(f"Empty File created: {file_name}")
