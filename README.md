@@ -14,3 +14,18 @@ Update the components
 Update the pipeline
 Update the main.py
 Update the dvc.yaml
+
+
+### Create ECR Repo and get URI 
+    - URI 529088256673.dkr.ecr.us-east-2.amazonaws.com/dlprojgestures
+
+
+### Run and install docker on machine amzn linux 2023
+```bash
+sudo dnf update -y
+sudo dnf install docker -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo systemctl status docker
+sudo usermod -aG docker $USER
+```
