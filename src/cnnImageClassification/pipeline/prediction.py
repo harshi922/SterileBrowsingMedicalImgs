@@ -7,6 +7,7 @@ import cv2
 
 class PredictionPipeline:
     def __init__(self):
+        os.system("dvc repro")
         model_path = os.path.join("artifacts","training", "model.h5")
         self.model = load_model(model_path)
         
