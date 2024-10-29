@@ -9,6 +9,7 @@ from ensure import ensure_annotations
 from box import ConfigBox
 from typing import Any
 import base64
+import cv2
 
 
 @ensure_annotations
@@ -100,12 +101,3 @@ def get_size(path: Path) -> str:
     size = round(os.path.getsize(path)/1024)
     return f"~{size} KB"
 
-def decodeImg(imgstring, fileName):
-    imgdata = base64.b64decode(imgstring)
-    with open(fileName, 'wb') as f:
-        f.write(imgdata)
-        f.close()
-
-def encodeImg(image_path):
-    with open(image_path, "rb") as img_file:
-        return base64.b64encode(img_file.read())

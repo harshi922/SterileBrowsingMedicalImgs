@@ -54,4 +54,5 @@ opencv-python
 scikit-learn
 gdown
 dvc
+imutils
 -e .

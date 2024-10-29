@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>A Gesture-based Tool for Sterile Browsing of Radiology Images</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/img/favicon.ico"
+    />
+    <!-- Load Require CSS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+ 
+
+    <!-- CSS only -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link href="../static_files/css/styles.css" rel="stylesheet" />
+
+
+    <!--
+    
+
+-->
+  </head>
+
+  <body>
+    <!-- Header -->
+    <nav
+      id="main_nav"
+      class="navbar navbar-expand-lg navbar-light bg-white shadow"
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand h1" href="/">
+          <i class="bx bx-buildings bx-sm text-dark"></i>
+          <span class="text-dark h4">Deep Learning</span>
+          <span class="text-primary h4">Project</span>
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-toggler-success"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
+          id="navbar-toggler-success"
+        >
+          <div class="flex-fill mx-xl-5 mb-2">
+            <ul
+              class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link btn-outline-primary rounded-pill px-3"
+                  href="/"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link btn-outline-primary rounded-pill px-3"
+                  href="/about"
+                  >Introduction</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link btn-outline-primary rounded-pill px-3"
+                  href="/predict"
+                  >Predict</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Start Banner Hero -->
+    <div class="banner-wrapper bg-light" style="height: 100%;">
+      <div
+        id="index_banner"
+        class="banner-vertical-center-index container-fluid pt-0"
+      >
+        <!-- Start slider -->
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="py-4 row d-flex align-items-center">
+                <div
+                  class="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5"
+                >
+                  <h1
+                    class="banner-heading h1 text-secondary display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line"
+                  >
+                    <strong
+                      >A Gesture-based Tool for Sterile Browsing of Radiology
+                      Images</strong
+                    >
+                  </h1>
+                  {% if message %}
+                    <h4>{{ message }}</h4>  <!-- Display the message in h4 -->
+                  {% endif %}
+                  <form action="{{url_for('trainRoute')}}" method="POST" class="input-group">
+                    <button type="submit" class="btn btn-primary">Train Model</button>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End slider -->
+      </div>
+    </div>
+    <!-- End Banner Hero -->
+
+    <!-- Start Footer -->
+    <footer
+      class="foot"
+    >
+      <div class="w-100 bg-primary py-3">
+        <div class="container">
+          <p class="text-lg-start text-center text-light light-300">
+            Harshitaa Yarramsetti
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </body>
+</html>
