@@ -1,0 +1,118 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/cnnImageClassification/pipeline/stage01_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 8dc504c1248640082da4cb467ef0c395
+      size: 722
+    - path: src/cnnImageClassification/pipeline/stage01_data_ingestion.py
+      hash: md5
+      md5: f89d7f654af634c26d1b5d38d07eadeb
+      size: 862
+    outs:
+    - path: artifacts/data_ingestion/GestureDataset
+      hash: md5
+      md5: 18d18e138b981fbb1878e03891fcdc9d.dir
+      size: 47985462
+      nfiles: 10321
+  prepare_base_model:
+    cmd: python src/cnnImageClassification/pipeline/stage02_prep_base_model.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 8dc504c1248640082da4cb467ef0c395
+      size: 722
+    - path: src/cnnImageClassification/pipeline/stage02_prep_base_model.py
+      hash: md5
+      md5: 54a700fdc69b3a7716750b3f7eee6792
+      size: 890
+    params:
+      params.yaml:
+        BATCH_SIZE: 128
+        CLASSES: 6
+        EPOCHS: 8
+        IMAGE_SIZE:
+        - 100
+        - 120
+        - 1
+        LOSS: categorical_crossentropy
+        METRICS:
+        - categorical_accuracy
+    outs:
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: bb4c9c2d41ae0005c54295ca4717496e.dir
+      size: 21219688
+      nfiles: 1
+  training:
+    cmd: python src/cnnImageClassification/pipeline/stage03_training.py
+    deps:
+    - path: artifacts/data_ingestion/GestureDataset
+      hash: md5
+      md5: 18d18e138b981fbb1878e03891fcdc9d.dir
+      size: 47985462
+      nfiles: 10321
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: bb4c9c2d41ae0005c54295ca4717496e.dir
+      size: 21219688
+      nfiles: 1
+    - path: config/config.yaml
+      hash: md5
+      md5: 8dc504c1248640082da4cb467ef0c395
+      size: 722
+    - path: src/cnnImageClassification/components/prepare_callbacks.py
+      hash: md5
+      md5: ce4aaac3f5427b70de0d694b19d55b11
+      size: 1015
+    - path: src/cnnImageClassification/pipeline/stage03_training.py
+      hash: md5
+      md5: e2acaffa8a1f152ae05e5193e83fa733
+      size: 1177
+    params:
+      params.yaml:
+        BATCH_SIZE: 128
+        EPOCHS: 8
+        IMAGE_SIZE:
+        - 100
+        - 120
+        - 1
+    outs:
+    - path: artifacts/training/model.h5
+      hash: md5
+      md5: 06f79279c79d1342af7111a293a20b3b
+      size: 63612096
+  evaluation:
+    cmd: python src/cnnImageClassification/pipeline/stage04_evaluation.py
+    deps:
+    - path: artifacts/data_ingestion/GestureDataset
+      hash: md5
+      md5: 18d18e138b981fbb1878e03891fcdc9d.dir
+      size: 47985462
+      nfiles: 10321
+    - path: artifacts/training/model.h5
+      hash: md5
+      md5: 06f79279c79d1342af7111a293a20b3b
+      size: 63612096
+    - path: config/config.yaml
+      hash: md5
+      md5: 8dc504c1248640082da4cb467ef0c395
+      size: 722
+    - path: src/cnnImageClassification/pipeline/stage04_evaluation.py
+      hash: md5
+      md5: 985bca886a2fb2bd044fc568c5c040e8
+      size: 773
+    params:
+      params.yaml:
+        BATCH_SIZE: 128
+        IMAGE_SIZE:
+        - 100
+        - 120
+        - 1
+    outs:
+    - path: scores.json
+      hash: md5
+      md5: 7984899d4272929e53a7394c2d9dc890
+      size: 74
