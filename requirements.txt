@@ -56,5 +56,4 @@ scikit-learn
 gdown
 dvc
 imutils
-cv2
 -e .
