@@ -2,7 +2,7 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL: https://github.com/harshi922/Datasets/raw/refs/heads/master/Dataset-20241028T135827Z-001.zip
+  source_URL: https://drive.google.com/file/d/1DXvi_5cuMNIkjqWhEERPOvZEwme2EjeM/view?usp=sharing
   local_data_file: artifacts/data_ingestion/Dataset.zip
   unzip_dir: artifacts/data_ingestion
 
@@ -15,3 +15,6 @@ prepare_callbacks:
   tensorboard_root_log_dir: artifacts/prepare_callbacks/tensorboard_log_dir
   checkpoint_model_filepath: artifacts/prepare_callbacks/checkpoint_dir/model.h5
 
+training:
+  root_dir: artifacts/training
+  trained_model_path: artifacts/training/model.h5

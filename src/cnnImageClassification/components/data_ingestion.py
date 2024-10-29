@@ -1,9 +1,9 @@
 import os
-import urllib.request as request
 import zipfile
 from cnnImageClassification import logger
 from cnnImageClassification.utils.common import get_size
 from pathlib import Path
+import gdown
 
 from cnnImageClassification.entity.config_entity import DataIngestionConfig
 
@@ -14,9 +14,10 @@ class DataIngestion:
 
     def download_file(self):
         if not os.path.exists(self.config.local_data_file):
-            file_name, headers = request.urlretrieve(url=self.config.source_URL, filename=self.config.local_data_file)
-            logger.info(f"Downloading file{file_name} with info {headers}")
+            gdown.download(f'https://drive.google.com/uc?id={self.config.source_URL.split("/")[-2]}', self.config.local_data_file, quiet=False)
+            logger.info(f"Downloading file{self.config.local_data_file}")
         else:
+            print("self.config.source_URL", self.config.source_URL.split('view')[-1])
             logger.info(f"File already exists with size {get_size(Path(self.config.local_data_file))}")
     
     def extract_zip_file(self):

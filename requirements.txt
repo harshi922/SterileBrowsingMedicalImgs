@@ -38,7 +38,6 @@ urllib3==2.2.3
 Werkzeug==3.0.6
 wrapt==1.16.0
 pandas 
-dvc
 notebook
 matplotlib
 seaborn
@@ -51,4 +50,8 @@ types-PyYAML
 scipy
 Flask
 Flask-Cors
+opencv-python
+scikit-learn
+gdown
+dvc
 -e .
