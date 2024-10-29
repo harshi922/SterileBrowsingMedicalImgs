@@ -32,7 +32,6 @@ click==8.1.7
 click-didyoumean==0.3.1
 click-plugins==1.1.1
 click-repl==0.3.0
--e git+https://github.com/harshi922/SterileBrowsingMedicalImgs.git@024982c16f7791acf4bb3978ee1aa4c4717c1744#egg=cnnImageClassification
 colorama==0.4.6
 comm==0.2.2
 configobj==5.0.9
