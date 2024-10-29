@@ -29,3 +29,5 @@ sudo systemctl enable docker
 sudo systemctl status docker
 sudo usermod -aG docker $USER
 ```
+
+### commands vary for unix and amzn 
